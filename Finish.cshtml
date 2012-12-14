@@ -1,0 +1,19 @@
+﻿@{
+    Page.Title = "Hidden Fields"; 
+    var numberCorrect = 0;
+    if (!Request["Q1"].IsEmpty() && Request["Q1"].Equals("London")){
+        numberCorrect+= 1;
+    }
+    if(!Request["Q2"].IsEmpty() && Request["Q2"].Equals("Brazil")){
+        numberCorrect+= 1;
+    }
+    if(!Request["Q3"].IsEmpty() && Request["Q3"].Equals("France")){
+        numberCorrect+= 1;
+    }    
+}
+<h1>Hidden Fields</h1>
+<div>You scored @numberCorrect out of 3!</div>
+<p>Q1: You said "@Request["Q1"]". Correct answer is London<br />
+    Q2: You said "@Request["Q2"]". Correct answer is Brazil<br />
+    Q3: You said "@Request["Q3"]". Correct answer is France</p>
+

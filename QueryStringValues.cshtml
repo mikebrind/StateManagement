@@ -1,0 +1,6 @@
+﻿@{
+    Page.Title = "Query String";
+}
+@foreach(string item in Request.QueryString){
+    <div>For @item, you supplied @Request[item]</div>
+}

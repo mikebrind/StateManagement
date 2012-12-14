@@ -1,0 +1,17 @@
+﻿@{
+    Page.Title = "Cookies";
+    if(IsPost && !Request["cookie-value"].IsEmpty()){
+        Response.Cookies["myCookie"].Value = Request["cookie-value"];
+        Response.Cookies["myCookie"]["user"] = "mike";
+        Response.Cookies["myCookie"]["role"] = "admin";
+        Response.Cookies["myCookie"].Expires = DateTime.Now.AddMonths(6);
+        Response.Cookies["myCookie"]["lastVisit"] = DateTime.Now.ToString();
+        Response.Redirect("GetCookie");
+    }
+}
+<h1>Cookies</h1>
+<form method="post">
+    <div>Provide a value for your cookie:</div>
+    <div><input type="text" name="cookie-value" /></div>
+    <div><input type="submit" /></div>
+</form>

@@ -1,0 +1,15 @@
+﻿@{
+    Page.Title = "Application Level Variables";
+}
+<h1>Application Level Variables</h1>
+<div>App.SiteName: @App.SiteName</div>
+<h3>Execution order</h3>
+<table>
+    <tr><th>Event</th><th>Order</th></tr>
+    <tr><td>Application Start</td><td>@App.ApplicationStart</td></tr>
+    <tr><td>AppStart Executed</td><td>@App.AppStart</td></tr>
+    <tr><td>Begin Request</td><td>@App.BeginRequest</td></tr>
+    <tr><td>Session Start</td><td>@App.SessionStart</td></tr>
+    <tr><td>PageStart Executed</td><td>@App.PageStart</td></tr>
+</table>
+@ObjectInfo.Print(AppState)

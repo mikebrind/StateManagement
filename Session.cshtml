@@ -1,0 +1,10 @@
+﻿@{
+    Page.Title = "Session";
+    var myName = Session["myName"];
+    var myList = (List<string>)Session["myList"];
+}
+<h1>Session Variables</h1>
+@myName<br />
+@foreach (var item in myList) {
+    @item<br />
+}

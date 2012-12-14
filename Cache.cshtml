@@ -1,0 +1,23 @@
+﻿@using System.Xml.Linq;
+@using System.Dynamic;
+@{
+    Page.Title = "Cache";
+
+    var weather = WebCache.Get("weather");
+    if(weather == null){
+        XNamespace yweather = "http://xml.weather.yahoo.com/ns/rss/1.0";
+        var xml = XDocument.Load("http://weather.yahooapis.com/forecastrss?w=26742853");
+        var forecast = xml.Descendants(yweather + "forecast").FirstOrDefault();
+        weather = new ExpandoObject();
+        weather.high = (string)forecast.Attribute("high");
+        weather.low = (string)forecast.Attribute("low");
+        weather.conditions = (string)forecast.Attribute("text");
+        weather.time = DateTime.Now;
+        WebCache.Set("weather", weather, 720, false);
+    }
+}
+<h1>Forecast for Rochester</h1>
+<div>High: @weather.high &deg;F</div>
+<div>Low: @weather.low &deg;F</div>
+<div>Conditions: @weather.conditions</div>
+<div>Cached at: @weather.time</div>

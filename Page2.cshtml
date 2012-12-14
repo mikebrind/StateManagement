@@ -1,0 +1,13 @@
+﻿@{
+    Page.Title = "Hidden Fields";
+}
+<h1>Hidden Fields</h1>
+<form method="post" action="/Page3">
+    <div>Q2: Where is the World Cup 2014 being held?</div>
+    <input type="radio" name="Q2" value="Canada" /> Canada<br />
+    <input type="radio" name="Q2" value="Brazil" /> Brazil<br />
+    <input type="radio" name="Q2" value="Lagos" /> Lagos<br />
+    <input type="submit" value="Question 3..." />
+    @Html.Hidden("Q1", Request["Q1"])
+</form>
+    

@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+    App.Counter ++;
+    App.PageStart = App.Counter;
+    if(Session["myName"] == null){
+        Session["myName"] = "Mike";
+    }
+    var myList = new List<string>{"a", "b", "c", "d"};
+    Session["myList"] = myList;
+}
